@@ -2,6 +2,7 @@ package com.sonicbottle.mockModel;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.sql.Timestamp;
 
 public class MockModelProcessor {
 
@@ -12,8 +13,15 @@ public class MockModelProcessor {
 
 		try {
 			for (Field field : fields) {
+				
+				if (!field.isAnnotationPresent(MockModel.class)) {
+					continue;
+				}
+				
+				Object value = DataFactory.populateField(field);
+				
 				Method setterMethod = clazz.getMethod(setterName(field.getName()), field.getType());
-				setterMethod.invoke(obj, "Hello");
+				setterMethod.invoke(obj, value);
 			}
 		} catch (Exception e) {
 			System.err.println(e);
@@ -26,4 +34,5 @@ public class MockModelProcessor {
 		ca[0] = Character.toUpperCase(ca[0]);
 		return "set" + new String(ca);
 	}
+	
 }

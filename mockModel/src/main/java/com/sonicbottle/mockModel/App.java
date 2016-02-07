@@ -11,8 +11,11 @@ public class App
     	System.out.println("Starting");
     	
         MockModelExample example = new MockModelExample();
-        
         System.out.println(example.getHello());
+        System.out.println(example.getBob());
+    	
+//    	System.out.println(DataFactory.getBoolean());
+//    	System.out.println(DataFactory.getBoolean());
         
         System.out.println("Ending");
     }
