@@ -54,7 +54,7 @@ public class DataFactory {
 				value = getObject(fieldType);
 			}
 		} catch (InstantiationException | IllegalAccessException e) {
-			System.err.println(e);
+			return null;
 		}
 		return value;
 	}
@@ -72,7 +72,7 @@ public class DataFactory {
 				setterMethod.invoke(obj, value);
 			}
 		} catch (Exception e) {
-			System.err.println(e);
+			return null; //Failed to produce object
 		}
 		return obj;
 	}
