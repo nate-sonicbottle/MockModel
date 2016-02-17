@@ -3,6 +3,8 @@ package com.sonicbottle.mockModel;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,8 @@ public class DataTypesTest{
 	@MockModel private Double doubleField;
 	@MockModel private double doublePrimitiveField;
 	@MockModel private TestPOJO testPOJO;
+	@MockModel private Timestamp timestampField;
+	@MockModel private Date dateField;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -78,6 +82,17 @@ public class DataTypesTest{
 	public void testDoublePrimitiveField() {
 		assertFalse("short is not default", (0.0d == doublePrimitiveField));
 	}
+	
+	@Test
+	public void testTimestampField() {
+		assertNotNull(timestampField);
+	}
+	
+	@Test
+	public void testDateField() {
+		assertNotNull(dateField);
+	}
+	
 	
 	@Test
 	public void testPOJOField() {

@@ -50,6 +50,9 @@ public class DataFactory {
 			} else if (fieldType.isInstance(new Character('Y'))) {
 				value = getChar();
 			} else if (fieldType.isInstance(new Timestamp(0))) {
+				value = getTimestamp();
+			} else if (fieldType.isInstance(new Date(0))) {
+				value = getDate();
 			} else if (!fieldType.isInterface()) {
 				value = getObject(fieldType);
 			}
@@ -105,6 +108,10 @@ public class DataFactory {
 
 	public static Timestamp getTimestamp() {
 		return new Timestamp(time);
+	}
+	
+	public static Date getDate() {
+		return new Date();
 	}
 
 	public static boolean getBoolean() {
