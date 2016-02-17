@@ -67,12 +67,18 @@ public class DataFactory {
 			obj = clazz.newInstance();
 			for (Field field : fields) {
 				Object value = populateField(field);
-				Method setterMethod = clazz.getMethod(
-						setterName(field.getName()), field.getType());
-				setterMethod.invoke(obj, value);
+				try {
+					Method setterMethod = clazz.getMethod(
+							setterName(field.getName()), field.getType());
+					setterMethod.invoke(obj, value);
+				} catch (NoSuchMethodException e) {
+					// Since setter injection failed, lets change permissions on field to accessible 
+					field.setAccessible(true);
+					field.set(obj, value);
+				}
 			}
 		} catch (Exception e) {
-			return null; //Failed to produce object
+			return null; // Failed to produce object
 		}
 		return obj;
 	}
@@ -108,7 +114,7 @@ public class DataFactory {
 	public static String getString() {
 		return "string" + fieldCount();
 	}
-	
+
 	private static String setterName(String fieldName) {
 		char[] ca = fieldName.toCharArray();
 		ca[0] = Character.toUpperCase(ca[0]);
