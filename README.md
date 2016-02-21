@@ -79,7 +79,7 @@ private void thatNewUserGetsCreated() throws Exception {
 
 ## How it works 
 
-When <p><code>initMocks()</p></code> is called on <p><code>MockModelProcessor</p></code>, it looks for any fields with the <p><code>@MockModel</p></code> annotion. If it finds one of these fields it determines the type of that fields and assigns it a unique value (exception to this is Date & Timestamp). It will attempt to apply the value via setter injection if possible, Otherwise it will use reflection to change the field value. 
+When ``initMocks()`` is called on ``MockModelProcessor``, it looks for any fields with the ``@MockModel`` annotion. If it finds one of these fields it determines the type of that fields and assigns it a unique value (exception to this is Date & Timestamp). It will attempt to apply the value via setter injection if possible, Otherwise it will use reflection to change the field value. 
 
 ## Times when MockModel isn't suitable 
 
