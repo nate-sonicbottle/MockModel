@@ -50,6 +50,7 @@ public class DataTypesTest{
 	@MockModel private TestPOJO testPOJO;
 	@MockModel private Timestamp timestampField;
 	@MockModel private Date dateField;
+	@MockModel final private String finalStringField = "Can't be changed";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -122,5 +123,10 @@ public class DataTypesTest{
 		assertNotNull(testPOJO);
 		assertNotNull(testPOJO.getName());
 		assertTrue(testPOJO.getAge() > 1);
+	}
+	
+	@Test
+	public void testFinalStringField() {
+		assertEquals("Can't be changed", finalStringField);
 	}
 }

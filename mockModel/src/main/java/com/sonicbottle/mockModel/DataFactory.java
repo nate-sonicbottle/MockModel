@@ -43,44 +43,41 @@ public class DataFactory {
 		Object value = null;
 		Class<?> fieldType = field.getType();
 
-		try {
-			if (fieldType.isPrimitive()) {
-				if (fieldType.toString().equals("int")) {
-					value = getInteger();
-				} else if (fieldType.toString().equals("long")) {
-					value = getLong();
-				} else if (fieldType.toString().equals("short")) {
-					value = getShort();
-				} else if (fieldType.toString().equals("double")) {
-					value = getDouble();
-				} else if (fieldType.toString().equals("boolean")) {
-					value = getBoolean();
-				} else if (fieldType.toString().equals("char")) {
-					value = getChar();
-				}
-			} else if (fieldType.isInstance(String.class.newInstance())) {
-				value = getString();
-			} else if (fieldType.isInstance(new Integer(0))) {
+		if (fieldType.isPrimitive()) {
+			if (fieldType.toString().equals("int")) {
 				value = getInteger();
-			} else if (fieldType.isInstance(new Long(0))) {
+			} else 
+				if (fieldType.toString().equals("long")) {
 				value = getLong();
-			} else if (fieldType.isInstance(new Short((short) 0))) {
+			} else if (fieldType.toString().equals("short")) {
 				value = getShort();
-			} else if (fieldType.isInstance(new Double(0))) {
+			} else if (fieldType.toString().equals("double")) {
 				value = getDouble();
-			} else if (fieldType.isInstance(Boolean.TRUE)) {
+			} else if (fieldType.toString().equals("boolean")) {
 				value = getBoolean();
-			} else if (fieldType.isInstance(new Character('Y'))) {
+			} else if (fieldType.toString().equals("char")) {
 				value = getChar();
-			} else if (fieldType.isInstance(new Timestamp(0))) {
-				value = getTimestamp();
-			} else if (fieldType.isInstance(new Date(0))) {
-				value = getDate();
-			} else if (!fieldType.isInterface()) {
-				value = getObject(fieldType);
 			}
-		} catch (InstantiationException | IllegalAccessException e) {
-			return null;
+		} else if (fieldType.isAssignableFrom(String.class)) {
+			value = getString();
+		} else if (fieldType.isAssignableFrom(Integer.class)) {
+			value = getInteger();
+		} else if (fieldType.isAssignableFrom(Long.class)) {
+			value = getLong();
+		} else if (fieldType.isAssignableFrom(Short.class)) {
+			value = getShort();
+		} else if (fieldType.isAssignableFrom(Double.class)) {
+			value = getDouble();
+		} else if (fieldType.isAssignableFrom(Boolean.class)) {
+			value = getBoolean();
+		} else if (fieldType.isAssignableFrom(Character.class)) {
+			value = getChar();
+		} else if (fieldType.isAssignableFrom(Timestamp.class)) {
+			value = getTimestamp();
+		} else if (fieldType.isAssignableFrom(Date.class)) {
+			value = getDate();
+		} else if (!fieldType.isInterface()) {
+			value = getObject(fieldType);
 		}
 		return value;
 	}
