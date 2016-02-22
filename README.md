@@ -1,6 +1,6 @@
 # MockModel
 
-(https://travis-ci.org/nate-sonicbottle/MockModel.svg?branch=master)](https://travis-ci.org/nate-sonicbottle/MockModel)
+[![Build Status](https://travis-ci.org/nate-sonicbottle/MockModel.svg?branch=master)](https://travis-ci.org/nate-sonicbottle/MockModel)
 
 MockModel Annotation 
 
