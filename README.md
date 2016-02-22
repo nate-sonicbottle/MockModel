@@ -1,5 +1,7 @@
 # MockModel
 
+(https://travis-ci.org/nate-sonicbottle/MockModel.svg?branch=master)](https://travis-ci.org/nate-sonicbottle/MockModel)
+
 MockModel Annotation 
 
 This java annotation populates POJOs with mock data to aid in unit testing. A common unit test might look like the following: 
