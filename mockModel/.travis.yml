@@ -1,1 +1,2 @@
+before_install: cd mockModel
 language: java
