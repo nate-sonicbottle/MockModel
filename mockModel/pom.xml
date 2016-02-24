@@ -53,5 +53,17 @@
 			<url>http://opensource.org/licenses/mit-license.php</url>
 		</license>
 	</licenses>
+	
+	<developers>
+        <developer>
+            <id>nate-sonicbottle</id>
+            <name>Nathan Phillips</name>
+            <url>https://github.com/nate-sonicbottle</url>
+            <email>nphillips@sonicbottle.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
 
 </project>
