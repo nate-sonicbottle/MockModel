@@ -29,6 +29,11 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * A Factory that creates the test data
+ * 
+ * @author Nathan
+ */
 public class DataFactory {
 
 	private static int fieldCount = 0;

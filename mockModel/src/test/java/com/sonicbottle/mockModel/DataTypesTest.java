@@ -32,6 +32,11 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests all the dataTypes to ensure that MockModel works as expected
+ * 
+ * @author Nathan
+ */
 public class DataTypesTest{
 	
 	private String nullField;

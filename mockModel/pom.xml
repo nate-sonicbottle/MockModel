@@ -1,12 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.sonicbottle</groupId>
 	<artifactId>mockModel</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.1-SNAPSHOT</version>
-	<name>mockModel</name>
-	<url>http://maven.apache.org</url>
+	<version>1.0.1</version>
+
+	<name>MockModel</name>
+	<description>A library used to populate fields and POJOs with random data</description>
+	<url>https://github.com/nate-sonicbottle/MockModel</url>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -31,4 +34,24 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<scm>
+		<url>git@github.com:nate-sonicbottle/MockModel.git</url>
+		<connection>scm:git:git@github.com:nate-sonicbottle/MockModel.git</connection>
+		<developerConnection>scm:git:git@github.com:nate-sonicbottle/MockModel.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/nate-sonicbottle/MockModel</url>
+	</ciManagement>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
 </project>

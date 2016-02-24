@@ -23,6 +23,11 @@
  */
 package com.sonicbottle.mockModel;
 
+/**
+ * Just a demo POJO
+ * 
+ * @author Nathan
+ */
 public class TestPOJO {
 
 	private String Name;

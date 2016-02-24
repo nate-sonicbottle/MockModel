@@ -28,8 +28,21 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
 
+/**
+ * Handles actually detecting and processing of any fields marked with the MockModel annotation
+ * 
+ * @author Nathan
+ */
 public class MockModelProcessor {
 
+	/**
+	 * Initializes fields annotated with @MockModle for given object.
+	 * 
+	 * @param obj - Object we want the mocks injected on
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
 	public static void initMocks(Object obj) throws IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
 		Class<? extends Object> clazz = obj.getClass();
