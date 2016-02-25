@@ -1,6 +1,6 @@
 # MockModel
 
-[![Build Status](https://travis-ci.org/nate-sonicbottle/MockModel.svg?branch=master)](https://travis-ci.org/nate-sonicbottle/MockModel) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT) 
+[![Build Status](https://travis-ci.org/nate-sonicbottle/MockModel.svg?branch=master)](https://travis-ci.org/nate-sonicbottle/MockModel) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.sonicbottle/mockModel/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|com.sonicbottle|mockModel|1.0.1|) 
 
 MockModel Annotation 
 
