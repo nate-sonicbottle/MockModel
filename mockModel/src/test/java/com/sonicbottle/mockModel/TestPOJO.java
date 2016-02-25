@@ -29,6 +29,8 @@ package com.sonicbottle.mockModel;
  * @author Nathan
  */
 public class TestPOJO {
+	
+	private final int uuid = 213948477;
 
 	private String Name;
 	private int age;

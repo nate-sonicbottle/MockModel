@@ -25,6 +25,7 @@ package com.sonicbottle.mockModel;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Random;
@@ -94,6 +95,11 @@ public class DataFactory {
 		try {
 			obj = clazz.newInstance();
 			for (Field field : fields) {
+				
+				if (Modifier.isFinal(field.getModifiers())) {
+					continue;
+				}
+				
 				Object value = populateField(field);
 				try {
 					Method setterMethod = clazz.getMethod(

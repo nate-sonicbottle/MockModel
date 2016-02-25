@@ -23,9 +23,13 @@
  */
 package com.sonicbottle.mockModel;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -133,5 +137,10 @@ public class DataTypesTest{
 	@Test
 	public void testFinalStringField() {
 		assertEquals("Can't be changed", finalStringField);
+	}
+	
+	@Test
+	public void testFinal() {
+		
 	}
 }
