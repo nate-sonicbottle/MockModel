@@ -50,20 +50,7 @@ public class DataFactory {
 		Class<?> fieldType = field.getType();
 
 		if (fieldType.isPrimitive()) {
-			if (fieldType.toString().equals("int")) {
-				value = getInteger();
-			} else 
-				if (fieldType.toString().equals("long")) {
-				value = getLong();
-			} else if (fieldType.toString().equals("short")) {
-				value = getShort();
-			} else if (fieldType.toString().equals("double")) {
-				value = getDouble();
-			} else if (fieldType.toString().equals("boolean")) {
-				value = getBoolean();
-			} else if (fieldType.toString().equals("char")) {
-				value = getChar();
-			}
+			value = getPrimitiveValue(fieldType.toString());
 		} else if (fieldType.isAssignableFrom(String.class)) {
 			value = getString();
 		} else if (fieldType.isAssignableFrom(Integer.class)) {
@@ -82,6 +69,8 @@ public class DataFactory {
 			value = getTimestamp();
 		} else if (fieldType.isAssignableFrom(Date.class)) {
 			value = getDate();
+		} else if (fieldType.isEnum()) {
+			value = getEnumConstant(fieldType);
 		} else if (!fieldType.isInterface()) {
 			value = getObject(fieldType);
 		}
@@ -146,16 +135,43 @@ public class DataFactory {
 	}
 
 	public static boolean getBoolean() {
-		return (fieldCount() % 2) == 1 ? true : false;
+		return (fieldCount() % 2) == 1;
 	}
 
 	public static String getString() {
 		return "string" + fieldCount();
 	}
 
+	public static Object getEnumConstant(Class<?> enumType) {
+		if (!enumType.isEnum()) {
+			return null;
+		}
+		Object[] constants = enumType.getEnumConstants();
+		return constants[0];
+	}
+
 	private static String setterName(String fieldName) {
 		char[] ca = fieldName.toCharArray();
 		ca[0] = Character.toUpperCase(ca[0]);
 		return "set" + new String(ca);
+	}
+
+	private static Object getPrimitiveValue(String fieldType) {
+		switch (fieldType) {
+			case "int":
+				return getInteger();
+			case "long":
+				return getLong();
+			case "short":
+				return getShort();
+			case "double":
+				return getDouble();
+			case "boolean":
+				return getBoolean();
+			case "char":
+				return getChar();
+			default:
+				return null;
+		}
 	}
 }
