@@ -38,11 +38,13 @@ import org.junit.Test;
 
 /**
  * Tests all the dataTypes to ensure that MockModel works as expected
- * 
+ *
  * @author Nathan
  */
-public class DataTypesTest{
-	
+public class DataTypesTest {
+
+	private static final String FINAL_FIELD_TEXT = "Can't be changed";
+
 	private String nullField;
 	
 	@MockModel private String stringField;
@@ -59,7 +61,8 @@ public class DataTypesTest{
 	@MockModel private TestPOJO testPOJO;
 	@MockModel private Timestamp timestampField;
 	@MockModel private Date dateField;
-	@MockModel final private String finalStringField = "Can't be changed";
+	@MockModel private TestEnum enumField;
+	@MockModel final private String finalStringField = FINAL_FIELD_TEXT;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -136,11 +139,11 @@ public class DataTypesTest{
 	
 	@Test
 	public void testFinalStringField() {
-		assertEquals("Can't be changed", finalStringField);
+		assertEquals(FINAL_FIELD_TEXT, finalStringField);
 	}
-	
+
 	@Test
-	public void testFinal() {
-		
+	public void testEnum() {
+		assertNotNull(enumField);
 	}
 }
